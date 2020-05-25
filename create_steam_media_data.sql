@@ -1,16 +1,15 @@
 create table steam_media_data(
-    steam_appid int,
-    header_image varchar(10000),
-    screenshoots varchar(50000),
-    background varchar(10000),
-    movie varchar(10000),
+    steam_appid int not NULL,
+    header_image TEXT,
+    screenshoots TEXT,
+    background TEXT,
+    movie TEXT,
     primary key (steam_appid)
 );
 
 load data local infile './steam_media_data.csv'
 into table steam_media_data
 fields terminated by ','
-enclosed by '"'
-lines terminated by '\n'
+OPTIONALLY ENCLOSED BY  '\"'
+lines terminated by '\r\n'
 ignore 1 lines;
-
